@@ -1,2 +1,2 @@
 # Snake
-Lập trình game Snake
+Lập trình game Snake rắn ăn mồi

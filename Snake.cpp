@@ -46,6 +46,15 @@ public:
             Qua.y = rand()%(MAXY - MINY) + MINY;
         }
     }
+
+     bool KiemTraThua(){
+        if (A[0].x <= MINX || A[0].x >= MAXX || A[0].y <= MINY || A[0].y >= MAXY)
+            return true;
+        for (int i = 1; i < DoDai; i++)
+            if (A[0].x == A[i].x && A[0].y == A[i].y)
+                return true;
+        return false;
+    }
 };
 
 
@@ -79,7 +88,17 @@ int main()
         system("cls");
         VeKhung();
         r.Ve(Qua);
-        r.DiChuyen(Huong, Qua);    
+        r.DiChuyen(Huong, Qua);   
+        
+         if (r.KiemTraThua()){
+            gotoxy(MINX + 8, (MINY + MAXY) / 2);
+            cout << "GAME OVER!";
+            gotoxy(MINX + 2, (MINY + MAXY) / 2 + 1);
+            cout << "Bam phim bat ky de thoat...";
+            getch();
+            break;
+        }
+        
         Sleep(300);
     }
 
